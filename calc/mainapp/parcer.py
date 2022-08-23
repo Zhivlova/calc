@@ -142,7 +142,6 @@ print(profitability)
 """Лист Эластичность спроса"""
 
 sheet = wb.worksheets[3]
-
 elasticity_demand = {"research": [], "price_elasticity": [], "link": []}
 for row in range(2, 12):
     research = sheet[row][1].value
@@ -154,4 +153,56 @@ for row in range(2, 12):
 print(elasticity_demand)
 
 
+"""Лист Структура затрат (ЦСР)"""
 
+sheet = wb.worksheets[5]
+cost_structure = {"cost_item": [], "rub_t": []}
+for row in range(2, 15):
+    cost_item = sheet[row][0].value
+    cost_structure['cost_item'].append(cost_item)
+    rub_t = sheet[row][1].value
+    cost_structure['rub_t'].append(rub_t)
+print(cost_structure)
+
+"""Лист Эластичности замещения (GTAP)"""
+
+sheet = wb.worksheets[6]
+elasticity_substitution = {"number": [], "GTAP": [], "industry": [], "el_substitution_imp_dom": [],
+                           "el_substitution_imp": []}
+for row in range(2, 59):
+    number = sheet[row][0].value
+    elasticity_substitution['number'].append(number)
+    GTAP = sheet[row][1].value
+    elasticity_substitution['GTAP'].append(GTAP)
+    industry = sheet[row][2].value
+    elasticity_substitution['industry'].append(industry)
+    el_substitution_imp_dom = sheet[row][3].value
+    elasticity_substitution['el_substitution_imp_dom'].append(el_substitution_imp_dom)
+    el_substitution_imp = sheet[row][4].value
+    elasticity_substitution['el_substitution_imp'].append(el_substitution_imp)
+print(elasticity_substitution)
+
+"""Налоговая нагрузка (ФНС)"""
+
+sheet = wb.worksheets[7]
+tax_burden = {"type_ec_act_OKVED2": [], "tax": [], "fiscal_burden": []}
+for row in range(6, 51):
+    type_ec_act_OKVED2 = sheet[row][0].value
+    tax_burden['type_ec_act_OKVED2'].append(type_ec_act_OKVED2)
+    tax = sheet[row][1].value
+    tax_burden['tax'].append(tax)
+    fiscal_burden = sheet[row][2].value
+    tax_burden['fiscal_burden'].append(fiscal_burden)
+print(tax_burden)
+
+""" Лист Рентабельность (ФНС) """
+sheet = wb.worksheets[8]
+profitability = {"type_act_OKVED2": [], "sold_goods": [], "assets": []}
+for row in range(5, 66):
+    type_act_OKVED2 = sheet[row][0].value
+    profitability['type_act_OKVED2'].append(type_act_OKVED2)
+    sold_goods = sheet[row][1].value
+    profitability['sold_goods'].append(sold_goods)
+    assets = sheet[row][2].value
+    profitability['assets'].append(assets)
+print(profitability)
